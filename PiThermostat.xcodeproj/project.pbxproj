@@ -16,7 +16,6 @@
 		6F9D7ACD1AD9DF6D00696C93 /* ThermostatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7ACC1AD9DF6D00696C93 /* ThermostatViewController.m */; };
 		6F9D7AD01AD9DF6D00696C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F9D7ACE1AD9DF6D00696C93 /* Main.storyboard */; };
 		6F9D7AD21AD9DF6D00696C93 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9D7AD11AD9DF6D00696C93 /* Images.xcassets */; };
-		6F9D7AD51AD9DF6D00696C93 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F9D7AD31AD9DF6D00696C93 /* LaunchScreen.xib */; };
 		6F9D7AE11AD9DF6D00696C93 /* PiThermostatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7AE01AD9DF6D00696C93 /* PiThermostatTests.m */; };
 		6F9F99A71ADC78950084CB00 /* PiThermostatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9F99A61ADC78950084CB00 /* PiThermostatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F9F99AD1ADC78950084CB00 /* PiThermostatKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9F99A21ADC78950084CB00 /* PiThermostatKit.framework */; };
@@ -112,7 +111,6 @@
 		6F9D7ACC1AD9DF6D00696C93 /* ThermostatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThermostatViewController.m; sourceTree = "<group>"; };
 		6F9D7ACF1AD9DF6D00696C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F9D7AD11AD9DF6D00696C93 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6F9D7AD41AD9DF6D00696C93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6F9D7ADA1AD9DF6D00696C93 /* PiThermostatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiThermostatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9D7ADF1AD9DF6D00696C93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9D7AE01AD9DF6D00696C93 /* PiThermostatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PiThermostatTests.m; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				6FF2FF511B1A472B0026F646 /* EditThermostatViewController.m */,
 				6F9D7ACE1AD9DF6D00696C93 /* Main.storyboard */,
 				6F9D7AD11AD9DF6D00696C93 /* Images.xcassets */,
-				6F9D7AD31AD9DF6D00696C93 /* LaunchScreen.xib */,
 				6F9D7AC41AD9DF6D00696C93 /* Supporting Files */,
 			);
 			path = PiThermostat;
@@ -513,7 +510,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9D7AD01AD9DF6D00696C93 /* Main.storyboard in Resources */,
-				6F9D7AD51AD9DF6D00696C93 /* LaunchScreen.xib in Resources */,
 				6F9D7AD21AD9DF6D00696C93 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,14 +643,6 @@
 				6F9D7ACF1AD9DF6D00696C93 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6F9D7AD31AD9DF6D00696C93 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6F9D7AD41AD9DF6D00696C93 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		6F9F99DF1ADC82C00084CB00 /* Interface.storyboard */ = {
