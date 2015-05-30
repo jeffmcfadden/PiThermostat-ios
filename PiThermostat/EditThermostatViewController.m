@@ -10,6 +10,10 @@
 
 @interface EditThermostatViewController ()
 
+@property (nonatomic, weak) IBOutlet UITextField *urlField;
+@property (nonatomic, weak) IBOutlet UITextField *usernameField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+
 @end
 
 @implementation EditThermostatViewController
@@ -22,6 +26,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)save:(id)sender
+{
+    NSDictionary *data = @{
+                           @"url"      : [NSString stringWithFormat:@"%@", self.urlField.text],
+                           @"username" : [NSString stringWithFormat:@"%@", self.usernameField.text],
+                           @"password" : [NSString stringWithFormat:@"%@", self.passwordField.text]
+                           };
+    
+    [self resignFirstResponder];
+    
+    [self.delegate editThermostatViewController:self finishedWithThermostatData:data];
+}
+
+- (IBAction)cancel:(id)sender
+{
+    [self.delegate editThermostatViewControllerCancelled:self];
 }
 
 /*

@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class EditThermostatViewController;
+
+@protocol EditThermostatViewControllerDelegate <NSObject>
+
+- (void)editThermostatViewController:(EditThermostatViewController *)editThermostatViewController finishedWithThermostatData:(NSDictionary *)data;
+- (void)editThermostatViewControllerCancelled:(EditThermostatViewController *)editThermostatViewController;
+
+@end
+
 @interface EditThermostatViewController : UIViewController
+
+@property (weak) id<EditThermostatViewControllerDelegate>delegate;
 
 @end

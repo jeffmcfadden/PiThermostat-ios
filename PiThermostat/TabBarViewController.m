@@ -6,9 +6,15 @@
 //  Copyright (c) 2015 ForgeApps. All rights reserved.
 //
 
+#import "Constants.h"
 #import "TabBarViewController.h"
+#import "ThermostatViewController.h"
+#import "EditThermostatViewController.h"
+@import PiThermostatKit;
 
-@interface TabBarViewController ()
+@interface TabBarViewController () <EditThermostatViewControllerDelegate>
+
+@property (nonatomic) EditThermostatViewController *editNewThermostatViewController;
 
 @end
 
@@ -17,12 +23,80 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self loadSavedThermostats];
+}
+
+- (void)loadSavedThermostats
+{
+    NSArray *thermostats = [[NSUserDefaults standardUserDefaults] objectForKey:kPTSavedThermostatsPreferenceKey];
     
+    NSMutableArray *vcs = [@[] mutableCopy];
+    
+    for (NSDictionary *d in thermostats) {
+        PiThermostat *t = [[PiThermostat alloc] initWithURL:d[@"url"] username:d[@"username"] password:d[@"password"]];
+        
+        ThermostatViewController *tvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"thermostatViewController"];
+        
+        tvc.thermostat = t;
+        
+        [vcs addObject:tvc];
+    }
+    
+    self.editNewThermostatViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"editThermostatViewController"];
+    self.editNewThermostatViewController.title = @"New";
+    self.editNewThermostatViewController.delegate = self;
+    [vcs addObject:self.editNewThermostatViewController];
+
+    self.viewControllers = vcs;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refresh
+{
+    for (UIViewController *vc in self.viewControllers) {
+        
+        if ([vc isKindOfClass:[ThermostatViewController class]]) {
+            [((ThermostatViewController *)vc) refresh];
+        }
+        
+    }
+}
+
+#pragma mark EditThermostatViewControllerDelegate
+- (void)editThermostatViewController:(EditThermostatViewController *)editThermostatViewController finishedWithThermostatData:(NSDictionary *)data
+{
+    if (editThermostatViewController == self.editNewThermostatViewController) {
+        PiThermostat *t = [[PiThermostat alloc] initWithURL:data[@"url"] username:data[@"username"] password:data[@"password"]];
+        
+        ThermostatViewController *tvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"thermostatViewController"];
+        
+        tvc.thermostat = t;
+        
+        NSMutableArray *vcs = [@[] mutableCopy];
+        
+        for (UIViewController *vc in self.viewControllers) {
+            if (vc != self.editNewThermostatViewController) {
+                [vcs addObject:vc];
+            }
+        }
+        
+        [vcs addObject:tvc];
+        
+        [vcs addObject:self.editNewThermostatViewController];
+        
+        [self setViewControllers:vcs animated:YES];
+        
+        [self setSelectedViewController:tvc];
+    }
+}
+
+- (void)editThermostatViewControllerCancelled:(EditThermostatViewController *)editThermostatViewController
+{
+    
 }
 
 /*

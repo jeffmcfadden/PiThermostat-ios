@@ -8,11 +8,8 @@
 
 #import "ThermostatViewController.h"
 
-@import PiThermostatKit;
 
 @interface ThermostatViewController ()
-
-@property (nonatomic) PiThermostat *thermostat;
 
 @property (nonatomic, assign) BOOL isRefreshing;
 
@@ -28,17 +25,18 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.isRefreshing = NO;
-    
-    NSURL *url = [NSURL URLWithString:@"http://192.168.201.183"];
-    NSString *username = @"thermostat";
-    NSString *password = @"TaDj3PmWiyt^wLE7";
-    
-    self.thermostat = [[PiThermostat alloc] initWithURL:url username:username password:password];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setThermostat:(PiThermostat *)thermostat
+{
+    _thermostat = thermostat;
+    
+    [self refresh];
+}
+
+- (PiThermostat *)thermostat
+{
+    return _thermostat;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,6 +59,8 @@
            
             self.labelCurrentTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.currentTemperature];
             self.labelTargetTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.targetTemperature];
+
+            self.navigationItem.title = self.title = [NSString stringWithFormat:@"%@", thermostat.name];
             
         });
         

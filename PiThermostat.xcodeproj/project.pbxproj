@@ -11,6 +11,7 @@
 		6F081A8B1B1A4E9A00B14608 /* PiThermostatKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9F99A21ADC78950084CB00 /* PiThermostatKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F081A8F1B1A4ED300B14608 /* PiThermostat.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9F99C21ADC78D40084CB00 /* PiThermostat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F081A901B1A4ED700B14608 /* PiThermostat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F99C31ADC78D40084CB00 /* PiThermostat.m */; };
+		6F081A931B1A54A300B14608 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F081A921B1A54A300B14608 /* Constants.m */; };
 		6F9D7AC71AD9DF6D00696C93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7AC61AD9DF6D00696C93 /* main.m */; };
 		6F9D7ACA1AD9DF6D00696C93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7AC91AD9DF6D00696C93 /* AppDelegate.m */; };
 		6F9D7ACD1AD9DF6D00696C93 /* ThermostatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7ACC1AD9DF6D00696C93 /* ThermostatViewController.m */; };
@@ -102,6 +103,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6F081A911B1A549700B14608 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		6F081A921B1A54A300B14608 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		6F9D7AC11AD9DF6D00696C93 /* PiThermostat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiThermostat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9D7AC51AD9DF6D00696C93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9D7AC61AD9DF6D00696C93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 			children = (
 				6F9D7AC51AD9DF6D00696C93 /* Info.plist */,
 				6F9D7AC61AD9DF6D00696C93 /* main.m */,
+				6F081A911B1A549700B14608 /* Constants.h */,
+				6F081A921B1A54A300B14608 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				6F9D7ACD1AD9DF6D00696C93 /* ThermostatViewController.m in Sources */,
 				6F9D7ACA1AD9DF6D00696C93 /* AppDelegate.m in Sources */,
 				6F9D7AC71AD9DF6D00696C93 /* main.m in Sources */,
+				6F081A931B1A54A300B14608 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,4 +6,6 @@
 //  Copyright (c) 2015 ForgeApps. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Constants.h"
+
+NSString *const kPTSavedThermostatsPreferenceKey             = @"com.forgeapps.PiThermostat.SavedThermostats";

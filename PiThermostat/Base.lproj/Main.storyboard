@@ -7,7 +7,7 @@
         <!--Thermostat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ThermostatViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="thermostatViewController" id="BYZ-38-t0r" customClass="ThermostatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -106,7 +106,7 @@
         <!--Edit Thermostat View Controller-->
         <scene sceneID="PZL-F7-Bhh">
             <objects>
-                <viewController id="y4G-Wb-DgI" userLabel="Edit Thermostat View Controller" customClass="EditThermostatViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editThermostatViewController" id="y4G-Wb-DgI" userLabel="Edit Thermostat View Controller" customClass="EditThermostatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L0m-V3-Eu2"/>
                         <viewControllerLayoutGuide type="bottom" id="c6M-jh-T44"/>
@@ -115,48 +115,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1OL-VH-GH4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1OL-VH-GH4">
                                 <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ohT-qO-hPM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address, ex. http://192.168.0.1/" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-0e-hTa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address, ex. http://192.168.0.1/" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-0e-hTa">
                                 <rect key="frame" x="16" y="66" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bea-6X-hPV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-IY-noM">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-IY-noM">
                                 <rect key="frame" x="16" y="104" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Olg-0X-TIA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGG-Yi-ecb">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGG-Yi-ecb">
                                 <rect key="frame" x="16" y="142" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="14a-HN-tnK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-Fm-MY3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-Fm-MY3">
                                 <rect key="frame" x="160" y="180" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ugq-cC-Bni"/>
+                                    <constraint firstAttribute="width" constant="60" id="udV-TJ-pee"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Override Minutes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca6-at-TAO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Override Minutes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca6-at-TAO">
                                 <rect key="frame" x="16" y="184" width="136" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Q2c-WY-Toz"/>
+                                    <constraint firstAttribute="width" constant="136" id="RFW-V7-sqQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-kt-rPA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-kt-rPA">
                                 <rect key="frame" x="518" y="218" width="66" height="30"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="Frs-ZN-zXd"/>
+                                    <constraint firstAttribute="height" constant="30" id="kSD-Cm-bc4"/>
+                                </constraints>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="save:" destination="y4G-Wb-DgI" eventType="touchUpInside" id="c7P-bD-BcM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jmL-0e-hTa" firstAttribute="top" secondItem="1OL-VH-GH4" secondAttribute="bottom" constant="8" id="1os-Rd-Ums"/>
+                            <constraint firstItem="ICJ-Fm-MY3" firstAttribute="leading" secondItem="Ca6-at-TAO" secondAttribute="trailing" constant="8" id="9D0-zI-kpu"/>
+                            <constraint firstAttribute="trailing" secondItem="1OL-VH-GH4" secondAttribute="trailing" constant="16" id="Eav-vW-DfW"/>
+                            <constraint firstItem="jmL-0e-hTa" firstAttribute="leading" secondItem="PlV-zc-hlf" secondAttribute="leading" constant="16" id="JIc-vH-LEe"/>
+                            <constraint firstItem="Jkc-IY-noM" firstAttribute="top" secondItem="jmL-0e-hTa" secondAttribute="bottom" constant="8" id="KLe-eX-vkc"/>
+                            <constraint firstAttribute="trailing" secondItem="Jkc-IY-noM" secondAttribute="trailing" constant="16" id="LWm-59-ydZ"/>
+                            <constraint firstItem="Jkc-IY-noM" firstAttribute="leading" secondItem="PlV-zc-hlf" secondAttribute="leading" constant="16" id="Rb9-hd-csP"/>
+                            <constraint firstItem="1OL-VH-GH4" firstAttribute="top" secondItem="L0m-V3-Eu2" secondAttribute="bottom" constant="8" id="Srn-um-g4o"/>
+                            <constraint firstItem="Ca6-at-TAO" firstAttribute="top" secondItem="yGG-Yi-ecb" secondAttribute="bottom" constant="12" id="WoH-Jk-TRh"/>
+                            <constraint firstItem="yGG-Yi-ecb" firstAttribute="leading" secondItem="PlV-zc-hlf" secondAttribute="leading" constant="16" id="Xha-zb-gG8"/>
+                            <constraint firstItem="AQ0-kt-rPA" firstAttribute="top" secondItem="yGG-Yi-ecb" secondAttribute="bottom" constant="46" id="YPA-0Q-vqo"/>
+                            <constraint firstItem="ICJ-Fm-MY3" firstAttribute="top" secondItem="yGG-Yi-ecb" secondAttribute="bottom" constant="8" id="f93-vd-tnY"/>
+                            <constraint firstItem="Ca6-at-TAO" firstAttribute="leading" secondItem="PlV-zc-hlf" secondAttribute="leading" constant="16" id="kCc-yh-v8w"/>
+                            <constraint firstItem="1OL-VH-GH4" firstAttribute="leading" secondItem="PlV-zc-hlf" secondAttribute="leading" constant="16" id="qUx-NJ-VRz"/>
+                            <constraint firstAttribute="trailing" secondItem="AQ0-kt-rPA" secondAttribute="trailing" constant="16" id="tko-GJ-JDo"/>
+                            <constraint firstAttribute="trailing" secondItem="yGG-Yi-ecb" secondAttribute="trailing" constant="16" id="vnd-gJ-lrl"/>
+                            <constraint firstAttribute="trailing" secondItem="jmL-0e-hTa" secondAttribute="trailing" constant="16" id="wKi-5G-SH5"/>
+                            <constraint firstItem="yGG-Yi-ecb" firstAttribute="top" secondItem="Jkc-IY-noM" secondAttribute="bottom" constant="8" id="zAc-mk-XMm"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="e1h-mo-rAG"/>
+                    <connections>
+                        <outlet property="passwordField" destination="yGG-Yi-ecb" id="5Vd-MU-idd"/>
+                        <outlet property="urlField" destination="jmL-0e-hTa" id="zLh-ec-FZF"/>
+                        <outlet property="usernameField" destination="Jkc-IY-noM" id="zIt-vn-5IW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62n-jm-Frx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

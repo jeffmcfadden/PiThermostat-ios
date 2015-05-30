@@ -29,6 +29,28 @@
     return self;
 }
 
+- (void)updateFromJSONData:(NSDictionary *)jsonData
+{
+    _name               = jsonData[@"name"];
+    _currentTemperature = [jsonData[@"current_temperature"] doubleValue];
+    _targetTemperature  = [jsonData[@"target_temperature"] doubleValue];
+    
+    NSString *modeString = jsonData[@"mode"];
+    
+    PTThermostatMode mode = PTThermostatModeUnknown;
+    if ([modeString isEqualToString:@"off"]) {
+        mode = PTThermostatModeOff;
+    }else if ([modeString isEqualToString:@"fan"]){
+        mode = PTThermostatModeFan;
+    }else if ([modeString isEqualToString:@"cool"]){
+        mode = PTThermostatModeCool;
+    }else if ([modeString isEqualToString:@"heat"]){
+        mode = PTThermostatModeHeat;
+    }
+    
+    _currentMode = mode;
+}
+
 - (void)refreshWithCompletion:(void(^)(PiThermostat *thermostat, NSError *error))completionBlock
 {
     NSString *requestURLString = [NSString stringWithFormat:@"%@/thermostats/1.json", self.url];
@@ -65,8 +87,7 @@
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
         
-        _currentTemperature = [json[@"current_temperature"] doubleValue];
-        _targetTemperature  = [json[@"target_temperature"] doubleValue];
+        [self updateFromJSONData:json];
         
         if (err != nil) {
             NSLog( @"Error: %@", err );
@@ -111,8 +132,7 @@
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
         
-        _currentTemperature = [json[@"current_temperature"] doubleValue];
-        _targetTemperature  = [json[@"target_temperature"] doubleValue];
+        [self updateFromJSONData:json];
         
         if (err != nil) {
             NSLog( @"Error: %@", err );
@@ -157,9 +177,8 @@
         NSError *err;
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
-        
-        _currentTemperature = [json[@"current_temperature"] doubleValue];
-        _targetTemperature  = [json[@"target_temperature"] doubleValue];
+
+        [self updateFromJSONData:json];
         
         if (err != nil) {
             NSLog( @"Error: %@", err );
@@ -177,14 +196,33 @@
 
 #pragma mark
 
+- (NSDictionary *)dictionaryRepresentation
+{
+    return @{
+             
+             @"name" : self.name,
+             @"url" : self.url,
+             @"username" : self.username,
+             @"password" : self.password,
+             @"currentTemperature" : [NSNumber numberWithDouble:self.currentTemperature],
+             @"targetTemperature"  : [NSNumber numberWithDouble:self.targetTemperature],
+             @"currentMode"        : [NSNumber numberWithInteger:self.currentMode]
+             
+             };
+}
+
+#pragma mark
+
 //I HATE THIS
 
 - (id)copyWithZone:(NSZone *)zone
 {
     PiThermostat *new = [[[self class] allocWithZone:zone] initWithURL:self.url username:self.username password:self.password];
     
+    new->_name = [_name copyWithZone:zone];
     new->_currentTemperature = _currentTemperature;
     new->_targetTemperature  = _targetTemperature;
+    new->_currentMode  = _currentMode;
     
     return new;
 }

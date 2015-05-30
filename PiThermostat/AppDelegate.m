@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ThermostatViewController.h"
+#import "TabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -40,7 +40,7 @@
     
     UIWindow *window = application.windows.firstObject;
     
-    ThermostatViewController *rvc = (ThermostatViewController *)(window.rootViewController);
+    TabBarViewController *rvc = (TabBarViewController *)(window.rootViewController);
     
     [rvc refresh];
 }

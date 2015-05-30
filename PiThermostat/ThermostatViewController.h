@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@import PiThermostatKit;
 
-@interface ThermostatViewController : UIViewController
+@interface ThermostatViewController : UIViewController {
+    PiThermostat * _thermostat;
+}
+
+@property (nonatomic) PiThermostat *thermostat;
 
 - (void)refresh;
 
