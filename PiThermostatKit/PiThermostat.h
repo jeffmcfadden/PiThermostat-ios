@@ -19,12 +19,17 @@ typedef NS_ENUM(NSInteger, PTThermostatMode) {
 
 @interface PiThermostat : NSObject <NSCopying>
 
+@property (nonatomic) NSURL *url;
+@property (nonatomic) NSString *username;
+@property (nonatomic) NSString *password;
+
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, assign, readonly) CGFloat currentTemperature;
 @property (nonatomic, assign, readonly) CGFloat targetTemperature;
 @property (nonatomic, assign, readonly) PTThermostatMode currentMode;
 
 - (id)initWithURL:(NSURL *)url username:(NSString *)username password:(NSString *)password;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)refreshWithCompletion:(void(^)(PiThermostat *thermostat, NSError *error))completionBlock;
 

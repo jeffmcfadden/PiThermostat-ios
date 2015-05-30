@@ -19,6 +19,10 @@
 
 @interface EditThermostatViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UITextField *urlField;
+@property (nonatomic, weak) IBOutlet UITextField *usernameField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+
 @property (weak) id<EditThermostatViewControllerDelegate>delegate;
 
 @end

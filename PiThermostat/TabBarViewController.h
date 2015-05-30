@@ -11,5 +11,6 @@
 @interface TabBarViewController : UITabBarController
 
 - (void)refresh;
+- (void)saveThermostats;
 
 @end

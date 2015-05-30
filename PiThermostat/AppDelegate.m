@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import "Constants.h"
+@import PiThermostatKit;
 
 @interface AppDelegate ()
 
@@ -18,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Fabric with:@[CrashlyticsKit]];
     return YES;
 }
 
@@ -47,6 +52,35 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark WatchKit Talkback
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply
+{
+    if ([userInfo[@"initialLaunch"] boolValue] == YES) {
+        NSArray *thermostatDicts = [[NSUserDefaults standardUserDefaults] objectForKey:kPTSavedThermostatsPreferenceKey];
+        
+        NSMutableArray *thermostats = [@[] mutableCopy];
+        
+        for (NSDictionary *d in thermostatDicts) {
+            
+            NSURL *url = [NSURL URLWithString:d[@"url"]];
+            
+            PiThermostat *t = [[PiThermostat alloc] initWithURL:url username:d[@"username"] password:d[@"password"]];
+            
+            [thermostats addObject:[t dictionaryRepresentation]];
+        }
+        
+        reply(@{@"thermostats":[thermostats copy]});
+    }else if (userInfo[@"reloadThermostat"] != nil) {
+        PiThermostat *t = userInfo[@"reloadThermostat"];
+        [t refreshWithCompletion:^(PiThermostat *thermostat, NSError *error){
+            reply( @{@"thermostat":[thermostat copy]} );
+        }];
+    }else{
+        reply( @{@"error": @YES} );
+    }
 }
 
 @end

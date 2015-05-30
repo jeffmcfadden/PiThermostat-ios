@@ -62,6 +62,19 @@
                                 <color key="textColor" white="0.74696180560000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="169-g0-5vx">
+                                <rect key="frame" x="527" y="28" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e1C-dU-wls"/>
+                                    <constraint firstAttribute="width" constant="57" id="nSt-eF-0hY"/>
+                                </constraints>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editThermostat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLY-j6-mcj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,8 +82,10 @@
                             <constraint firstItem="hrQ-OV-FkL" firstAttribute="top" secondItem="CbY-RF-dWM" secondAttribute="bottom" constant="11" id="EVX-A3-rS5"/>
                             <constraint firstItem="IFS-a4-gj8" firstAttribute="leading" secondItem="hrQ-OV-FkL" secondAttribute="trailing" constant="8" id="Imu-ok-Boe"/>
                             <constraint firstAttribute="centerX" secondItem="CbY-RF-dWM" secondAttribute="centerX" id="JlR-qs-GgS"/>
+                            <constraint firstAttribute="trailing" secondItem="169-g0-5vx" secondAttribute="trailing" constant="16" id="Jzc-Mt-muc"/>
                             <constraint firstItem="J71-ua-hBF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="92" id="R0d-e4-11e"/>
                             <constraint firstItem="hrQ-OV-FkL" firstAttribute="top" secondItem="IFS-a4-gj8" secondAttribute="top" id="S6j-kV-AY8"/>
+                            <constraint firstItem="169-g0-5vx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="fBO-Nr-1sC"/>
                             <constraint firstItem="CbY-RF-dWM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="lxI-JC-OLy"/>
                             <constraint firstItem="CbY-RF-dWM" firstAttribute="leading" secondItem="hrQ-OV-FkL" secondAttribute="trailing" constant="-47" id="mj3-mT-uzh"/>
                         </constraints>

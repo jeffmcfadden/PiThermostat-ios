@@ -33,7 +33,10 @@
     NSMutableArray *vcs = [@[] mutableCopy];
     
     for (NSDictionary *d in thermostats) {
-        PiThermostat *t = [[PiThermostat alloc] initWithURL:d[@"url"] username:d[@"username"] password:d[@"password"]];
+        
+        NSURL *url = [NSURL URLWithString:d[@"url"]];
+        
+        PiThermostat *t = [[PiThermostat alloc] initWithURL:url username:d[@"username"] password:d[@"password"]];
         
         ThermostatViewController *tvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"thermostatViewController"];
         

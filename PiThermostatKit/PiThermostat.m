@@ -10,9 +10,6 @@
 
 @interface PiThermostat()
 
-@property (nonatomic) NSURL *url;
-@property (nonatomic) NSString *username;
-@property (nonatomic) NSString *password;
 
 @end
 
@@ -25,6 +22,21 @@
         self.url = [url copy];
         self.username = [username copy];
         self.password = [password copy];
+    }
+    return self;
+}
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        
+        NSString *urlString = dictionary[@"url"];
+        
+        self.url      = [[NSURL URLWithString:urlString] copy];
+        _name         = [dictionary[@"name"] copy];
+        self.username = [dictionary[@"username"] copy];
+        self.password = [dictionary[@"password"] copy];
     }
     return self;
 }
@@ -201,7 +213,7 @@
     return @{
              
              @"name" : [NSString stringWithFormat:@"%@", self.name],
-             @"url" : self.url,
+             @"url" : [NSString stringWithFormat:@"%@", self.url],
              @"username" : [NSString stringWithFormat:@"%@", self.username],
              @"password" : [NSString stringWithFormat:@"%@", self.password],
              @"currentTemperature" : [NSNumber numberWithDouble:self.currentTemperature],

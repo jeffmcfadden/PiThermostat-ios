@@ -25,21 +25,42 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
 
+    if (context != nil && [context isKindOfClass:[NSDictionary class]]) {
+        self.thermostat = [[PiThermostat alloc] initWithDictionary:context];
+    }
+    
     // Configure interface objects here.
     self.isRefreshing = NO;
-    
-    NSURL *url = [NSURL URLWithString:@"http://192.168.201.183"];
-    NSString *username = @"thermostat";
-    NSString *password = @"TaDj3PmWiyt^wLE7";
-    
-    self.thermostat = [[PiThermostat alloc] initWithURL:url username:username password:password];
 }
+
+static BOOL first = YES;
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     
-    [self refresh];
+    if (first) {
+        [WKInterfaceController openParentApplication:@{@"initialLaunch": @YES} reply:^(NSDictionary *replyInfo, NSError *error){
+            
+            if (error) {
+                NSLog( @"Error: %@", error );
+            }
+            
+            NSMutableArray *controllers = [@[] mutableCopy];
+            NSMutableArray *contexts    = [@[] mutableCopy];
+            
+            for (NSDictionary *tDict in replyInfo[@"thermostats"]) {
+                [controllers addObject:@"pageController"];
+                [contexts addObject:tDict];
+            }
+            
+            [WKInterfaceController reloadRootControllersWithNames:controllers contexts:contexts];
+        }];
+
+        first = NO;
+    }else{
+        [self refresh];
+    }
 }
 
 - (void)didDeactivate {
@@ -57,6 +78,8 @@
     [self.thermostat refreshWithCompletion:^(PiThermostat *thermostat, NSError *error){
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self setTitle:[NSString stringWithFormat:@"%@", thermostat.name]];
             
             self.labelCurrentTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.currentTemperature];
             self.labelTargetTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.targetTemperature];

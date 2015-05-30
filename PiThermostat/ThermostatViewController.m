@@ -7,14 +7,17 @@
 //
 
 #import "ThermostatViewController.h"
+#import "EditThermostatViewController.h"
+#import "TabBarViewController.h"
 
-
-@interface ThermostatViewController ()
+@interface ThermostatViewController () <EditThermostatViewControllerDelegate>
 
 @property (nonatomic, assign) BOOL isRefreshing;
 
 @property (nonatomic) IBOutlet UILabel *labelCurrentTemperature;
 @property (nonatomic) IBOutlet UILabel *labelTargetTemperature;
+
+@property (nonatomic) EditThermostatViewController *editThermostatViewController;
 
 @end
 
@@ -108,6 +111,39 @@
         
         self.isRefreshing = NO;
     }];
+}
+
+- (IBAction)editThermostat:(id)sender
+{
+    self.editThermostatViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"editThermostatViewController"];
+    self.editThermostatViewController.title = @"Edit Thermostat";
+    self.editThermostatViewController.delegate = self;
+    
+    self.editThermostatViewController.urlField.text = [self.thermostat.url absoluteString];
+    self.editThermostatViewController.usernameField.text = self.thermostat.username;
+    self.editThermostatViewController.passwordField.text = self.thermostat.password;
+    
+    [self presentViewController:self.editThermostatViewController animated:YES completion:nil];
+}
+
+#pragma mark EditThermostatViewControllerDelegate
+
+- (void)editThermostatViewController:(EditThermostatViewController *)editThermostatViewController finishedWithThermostatData:(NSDictionary *)data
+{
+    PiThermostat *t = [[PiThermostat alloc] initWithURL:data[@"url"] username:data[@"username"] password:data[@"password"]];
+
+    self.thermostat = t;
+    
+    [self refresh];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [((TabBarViewController *)(self.tabBarController)) saveThermostats];
+}
+
+- (void)editThermostatViewControllerCancelled:(EditThermostatViewController *)editThermostatViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
