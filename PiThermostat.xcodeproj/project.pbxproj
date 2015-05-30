@@ -12,6 +12,7 @@
 		6F081A8F1B1A4ED300B14608 /* PiThermostat.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F9F99C21ADC78D40084CB00 /* PiThermostat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F081A901B1A4ED700B14608 /* PiThermostat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F99C31ADC78D40084CB00 /* PiThermostat.m */; };
 		6F081A931B1A54A300B14608 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F081A921B1A54A300B14608 /* Constants.m */; };
+		6F081A951B1A67D900B14608 /* Third Party in Resources */ = {isa = PBXBuildFile; fileRef = 6F081A941B1A67D900B14608 /* Third Party */; };
 		6F9D7AC71AD9DF6D00696C93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7AC61AD9DF6D00696C93 /* main.m */; };
 		6F9D7ACA1AD9DF6D00696C93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7AC91AD9DF6D00696C93 /* AppDelegate.m */; };
 		6F9D7ACD1AD9DF6D00696C93 /* ThermostatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9D7ACC1AD9DF6D00696C93 /* ThermostatViewController.m */; };
@@ -105,6 +106,7 @@
 /* Begin PBXFileReference section */
 		6F081A911B1A549700B14608 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		6F081A921B1A54A300B14608 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		6F081A941B1A67D900B14608 /* Third Party */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Third Party"; sourceTree = SOURCE_ROOT; };
 		6F9D7AC11AD9DF6D00696C93 /* PiThermostat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiThermostat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F9D7AC51AD9DF6D00696C93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F9D7AC61AD9DF6D00696C93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		6F9D7AC31AD9DF6D00696C93 /* PiThermostat */ = {
 			isa = PBXGroup;
 			children = (
+				6F081A941B1A67D900B14608 /* Third Party */,
 				6F9D7AC81AD9DF6D00696C93 /* AppDelegate.h */,
 				6F9D7AC91AD9DF6D00696C93 /* AppDelegate.m */,
 				6FF2FF4D1B1A46CF0026F646 /* TabBarViewController.h */,
@@ -515,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F9D7AD01AD9DF6D00696C93 /* Main.storyboard in Resources */,
+				6F081A951B1A67D900B14608 /* Third Party in Resources */,
 				6F9D7AD21AD9DF6D00696C93 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

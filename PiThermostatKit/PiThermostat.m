@@ -200,10 +200,10 @@
 {
     return @{
              
-             @"name" : self.name,
+             @"name" : [NSString stringWithFormat:@"%@", self.name],
              @"url" : self.url,
-             @"username" : self.username,
-             @"password" : self.password,
+             @"username" : [NSString stringWithFormat:@"%@", self.username],
+             @"password" : [NSString stringWithFormat:@"%@", self.password],
              @"currentTemperature" : [NSNumber numberWithDouble:self.currentTemperature],
              @"targetTemperature"  : [NSNumber numberWithDouble:self.targetTemperature],
              @"currentMode"        : [NSNumber numberWithInteger:self.currentMode]

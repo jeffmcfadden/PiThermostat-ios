@@ -66,6 +66,22 @@
     }
 }
 
+- (void)saveThermostats
+{
+    NSMutableArray *thermostatDictionaries = [@[] mutableCopy];
+    
+    for (UIViewController *vc in self.viewControllers) {
+        if ([vc isKindOfClass:[ThermostatViewController class]]) {
+            PiThermostat *t = [((ThermostatViewController *)vc) thermostat];
+            [thermostatDictionaries addObject:[t dictionaryRepresentation]];
+        }
+    }
+
+    
+    [[NSUserDefaults standardUserDefaults] setObject:thermostatDictionaries forKey:kPTSavedThermostatsPreferenceKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 #pragma mark EditThermostatViewControllerDelegate
 - (void)editThermostatViewController:(EditThermostatViewController *)editThermostatViewController finishedWithThermostatData:(NSDictionary *)data
 {
@@ -91,6 +107,8 @@
         [self setViewControllers:vcs animated:YES];
         
         [self setSelectedViewController:tvc];
+        
+        [self saveThermostats];
     }
 }
 

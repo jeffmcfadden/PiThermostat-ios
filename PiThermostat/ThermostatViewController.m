@@ -30,8 +30,6 @@
 - (void)setThermostat:(PiThermostat *)thermostat
 {
     _thermostat = thermostat;
-    
-    [self refresh];
 }
 
 - (PiThermostat *)thermostat
@@ -55,6 +53,8 @@
     self.isRefreshing = YES;
     [self.thermostat refreshWithCompletion:^(PiThermostat *thermostat, NSError *error){
         
+        self.thermostat = thermostat;
+        
         dispatch_async(dispatch_get_main_queue(), ^{
            
             self.labelCurrentTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.currentTemperature];
@@ -76,7 +76,8 @@
     
     self.isRefreshing = YES;
     [self.thermostat imHotWithCompletion:^(PiThermostat *thermostat, NSError *error){
-        
+        self.thermostat = thermostat;
+
         dispatch_async(dispatch_get_main_queue(), ^{
             
             self.labelCurrentTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.currentTemperature];
@@ -96,7 +97,8 @@
 
     self.isRefreshing = YES;
     [self.thermostat imColdWithCompletion:^(PiThermostat *thermostat, NSError *error){
-        
+        self.thermostat = thermostat;
+
         dispatch_async(dispatch_get_main_queue(), ^{
             
             self.labelCurrentTemperature.text = [NSString stringWithFormat:@"%0.1f", thermostat.currentTemperature];
