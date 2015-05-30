@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XLK-sm-rLT">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Thermostat View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ThermostatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CbY-RF-dWM">
+                                <rect key="frame" x="250" y="73" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Ifq-lk-alB"/>
+                                    <constraint firstAttribute="height" constant="100" id="ewX-as-iov"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="55"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFS-a4-gj8">
+                                <rect key="frame" x="305" y="184" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8dT-iU-cYu"/>
+                                    <constraint firstAttribute="width" constant="100" id="FaQ-Zk-aQh"/>
+                                </constraints>
+                                <state key="normal" title="I'm Hot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imHot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WtF-k6-KT1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrQ-OV-FkL">
+                                <rect key="frame" x="197" y="184" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XBR-Sn-Ebs"/>
+                                    <constraint firstAttribute="width" constant="100" id="cYQ-LA-Q1A"/>
+                                </constraints>
+                                <state key="normal" title="I'm Cold">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imCold:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PVF-ei-4r2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="J71-ua-hBF">
+                                <rect key="frame" x="348" y="112" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2zI-zA-qV1"/>
+                                    <constraint firstAttribute="height" constant="50" id="RbJ-Ia-amt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="30"/>
+                                <color key="textColor" white="0.74696180560000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J71-ua-hBF" firstAttribute="leading" secondItem="CbY-RF-dWM" secondAttribute="trailing" constant="-2" id="ESe-Gz-hTP"/>
+                            <constraint firstItem="hrQ-OV-FkL" firstAttribute="top" secondItem="CbY-RF-dWM" secondAttribute="bottom" constant="11" id="EVX-A3-rS5"/>
+                            <constraint firstItem="IFS-a4-gj8" firstAttribute="leading" secondItem="hrQ-OV-FkL" secondAttribute="trailing" constant="8" id="Imu-ok-Boe"/>
+                            <constraint firstAttribute="centerX" secondItem="CbY-RF-dWM" secondAttribute="centerX" id="JlR-qs-GgS"/>
+                            <constraint firstItem="J71-ua-hBF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="92" id="R0d-e4-11e"/>
+                            <constraint firstItem="hrQ-OV-FkL" firstAttribute="top" secondItem="IFS-a4-gj8" secondAttribute="top" id="S6j-kV-AY8"/>
+                            <constraint firstItem="CbY-RF-dWM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="53" id="lxI-JC-OLy"/>
+                            <constraint firstItem="CbY-RF-dWM" firstAttribute="leading" secondItem="hrQ-OV-FkL" secondAttribute="trailing" constant="-47" id="mj3-mT-uzh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="labelCurrentTemperature" destination="CbY-RF-dWM" id="YfZ-zs-fsc"/>
+                        <outlet property="labelTargetTemperature" destination="J71-ua-hBF" id="52K-Wr-PAd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="-3"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="jFe-af-y2d">
+            <objects>
+                <viewController id="pNh-st-crn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0j6-vy-XqA"/>
+                        <viewControllerLayoutGuide type="bottom" id="xfw-9t-N1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UhW-f4-YGd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="bCh-EV-Xhw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZj-at-BJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="449" y="1007"/>
+        </scene>
+        <!--Edit Thermostat View Controller-->
+        <scene sceneID="PZL-F7-Bhh">
+            <objects>
+                <viewController id="y4G-Wb-DgI" userLabel="Edit Thermostat View Controller" customClass="EditThermostatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L0m-V3-Eu2"/>
+                        <viewControllerLayoutGuide type="bottom" id="c6M-jh-T44"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PlV-zc-hlf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1OL-VH-GH4">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address, ex. http://192.168.0.1/" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-0e-hTa">
+                                <rect key="frame" x="16" y="66" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-IY-noM">
+                                <rect key="frame" x="16" y="104" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yGG-Yi-ecb">
+                                <rect key="frame" x="16" y="142" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="60" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICJ-Fm-MY3">
+                                <rect key="frame" x="160" y="180" width="60" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Override Minutes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca6-at-TAO">
+                                <rect key="frame" x="16" y="184" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ0-kt-rPA">
+                                <rect key="frame" x="518" y="218" width="66" height="30"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="e1h-mo-rAG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="62n-jm-Frx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="-3"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="peZ-dT-ZCE">
+            <objects>
+                <tabBarController id="XLK-sm-rLT" customClass="TabBarViewController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vg0-Hm-VgA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Lu-sb-qBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="674"/>
+        </scene>
+    </scenes>
+</document>
